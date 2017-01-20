@@ -1,6 +1,8 @@
 #include <SFML\Graphics.hpp>
 
-class Asteroid : public sf::Drawable {
+class Alien : public sf::Drawable {
+	sf::Vector2f m_position;
+	float m_speed;
 
 
 public:
