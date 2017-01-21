@@ -278,3 +278,10 @@ __pycache__/
 *.sdf
 .vs/Asteroids/v14/.suo
 *.sdf
+*.suo
+*.vcxproj
+*.log
+Asteroids/Debug/Asteroids.tlog/Asteroids.lastbuildstate
+*.tlog
+Asteroids/Debug/Main.obj
+*.idb
