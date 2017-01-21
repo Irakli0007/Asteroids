@@ -1,7 +1,9 @@
 #include "Player.h"
+#include "Alien.h"
 
 int main() {
 	Player player(400, 0);
+	Alien alien(400, 400, 2);
 
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Space Invaders");
 

@@ -6,7 +6,7 @@ Alien::Alien(float x, float y, float speed): m_position(x, y), m_speed(speed) {
 };
 
 Alien::~Alien() {
-	//delete any blaster/laser objects
+	//delete any Laser/laser objects
 }
 
 void Alien::move() {
@@ -25,7 +25,7 @@ void Alien::move() {
 
 void Alien::shoot() {
 	if (rand() % 10 < m_shootFreq) {
-		//create a laser/blaster object
+		//create a laser/Laser object
 	}
 }
 
