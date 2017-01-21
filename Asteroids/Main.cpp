@@ -6,13 +6,15 @@ int main() {
 	Alien alien(400, 400, 2);
 
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Space Invaders");
+	int counter = 0;
 
 	while (window.isOpen()) {
 		sf::Event event;
+		if (counter == 15) {
+			player.move();
+			counter = 0;
+		}
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::KeyPressed) {
-				player.move(event);
-			}
 			if (event.type == sf::Event::Closed) {
 				window.close();
 			}
@@ -20,6 +22,7 @@ int main() {
 		window.clear(sf::Color::Black);
 		window.draw(player);
 		window.display();
+		counter++;
 	}
 
 	return 0;
