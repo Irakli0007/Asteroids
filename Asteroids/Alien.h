@@ -1,6 +1,7 @@
 #include <SFML\Graphics.hpp>
 #include <stdlib.h>
 #include <time.h>
+#include "LaserTypes.h"
 
 class Alien : public sf::Drawable {
 	sf::Vector2f m_position;
@@ -8,6 +9,11 @@ class Alien : public sf::Drawable {
 	sf::RectangleShape m_sprite;
 	int m_numMoves = 0;
 	int m_shootFreq = 5;
+	int m_shotLifespan = 10;
+	bool m_shotsFired = 0;
+
+	Player * m_player = NULL;
+	Laser * m_laser = NULL;
 
 	void move();
 
@@ -20,6 +26,7 @@ public:
 
 	void update();
 
+	sf::Vector2f getPosition();
 	//this draw overrides class sf::Drawable's draw function and allows "window.draw(Asteroid obj)" to draw to screen
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

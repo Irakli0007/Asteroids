@@ -3,16 +3,15 @@
 #include "Player.h"
 #include "Alien.h"
 
-class Laser : sf::Drawable {
+class Laser : public sf::Drawable {
 protected:
 	sf::Vector2f m_position;
 	float m_speed;
 	sf::RectangleShape m_sprite;
 
-	virtual bool collision();
+	virtual bool collision() = 0;
 
 	void move();
-
 public:
 	Laser(float x, float y, float speed);
 

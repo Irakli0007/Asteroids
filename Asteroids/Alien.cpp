@@ -10,9 +10,9 @@ Alien::~Alien() {
 }
 
 void Alien::move() {
-	if (m_numMoves % 5 == 0) {
-		m_position.y -= 10;
-		m_sprite.move(0, -10);
+	if (m_numMoves % 40 == 0) {
+		m_position.y += 10;
+		m_sprite.move(0, 10);
 		m_speed *= -1;
 		m_numMoves++;
 	}
@@ -24,16 +24,32 @@ void Alien::move() {
 }
 
 void Alien::shoot() {
-	if (rand() % 10 < m_shootFreq) {
-		//create a laser/Laser object
-	}
+	m_laser = new AlienLaser(m_position.x, m_position.y, 10, m_player);
+	m_shotLifespan = 10;
 }
 
 void Alien::update() {
 	move();
-	shoot();
+
+	if (m_laser) {
+		if (m_shotLifespan > 0)
+			m_shotLifespan--;
+		else {
+			delete m_laser;
+			m_laser = NULL;
+		}
+	}
+
+	if (!m_laser && rand() % 10 < m_shootFreq)
+		shoot();
+}
+
+sf::Vector2f Alien::getPosition() {
+	return m_position;
 }
 
 void Alien::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	target.draw(m_sprite, states);
+	if (m_laser)
+		target.draw(*m_laser, states);
 }

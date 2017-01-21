@@ -13,7 +13,7 @@ public:
 
 	void move();
 
-
+	sf::Vector2f getPosition();
 
 
 };
