@@ -2,7 +2,7 @@
 
 Alien::Alien(float x, float y, float speed, Player * player): m_position(x, y), m_speed(speed), m_player(player) {
 	m_sprite.setPosition(m_position);
-	m_sprite.setSize(sf::Vector2f(60.f, 30.f));
+	m_sprite.setSize(sf::Vector2f(40.f, 20.f));
 };
 
 Alien::~Alien() {
