@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include "LaserTypes.h"
+#include "Player.h"
 
 class Alien : public sf::Drawable {
 	sf::Vector2f m_position;
 	float m_speed;
 	sf::RectangleShape m_sprite;
 	int m_numMoves = 0;
-	int m_shootFreq = 5;
+	int m_shootFreq = 7;
 	int m_shotLifespan = 10;
 	bool m_shotsFired = 0;
 
@@ -20,7 +21,7 @@ class Alien : public sf::Drawable {
 	void shoot();
 
 public:
-	Alien(float x, float y, float speed);
+	Alien(float x, float y, float speed, Player * player);
 
 	~Alien();
 

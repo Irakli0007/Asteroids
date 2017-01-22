@@ -1,12 +1,13 @@
 #include "Alien.h"
 
-Alien::Alien(float x, float y, float speed): m_position(x, y), m_speed(speed) {
+Alien::Alien(float x, float y, float speed, Player * player): m_position(x, y), m_speed(speed), m_player(player) {
 	m_sprite.setPosition(m_position);
 	m_sprite.setSize(sf::Vector2f(60.f, 30.f));
 };
 
 Alien::~Alien() {
-	//delete any Laser/laser objects
+	if (m_laser)
+		delete m_laser;
 }
 
 void Alien::move() {
@@ -25,20 +26,28 @@ void Alien::move() {
 
 void Alien::shoot() {
 	m_laser = new AlienLaser(m_position.x, m_position.y, 10, m_player);
-	m_shotLifespan = 10;
+	m_shotLifespan = 50;
 }
 
 void Alien::update() {
 	move();
 
 	if (m_laser) {
-		if (m_shotLifespan > 0)
+		m_laser->update();
+		if (m_shotLifespan > 0) {
+			if (m_laser->collision()) {
+				//destroy or reduce number of player lives
+				delete m_laser;
+				m_laser = NULL;
+			}
 			m_shotLifespan--;
+		}
 		else {
 			delete m_laser;
 			m_laser = NULL;
 		}
 	}
+
 
 	if (!m_laser && rand() % 10 < m_shootFreq)
 		shoot();

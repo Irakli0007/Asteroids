@@ -12,5 +12,4 @@ void Laser::move() {
 
 void Laser::update() {
 	move();
-	collision();
 }

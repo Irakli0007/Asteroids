@@ -1,4 +1,5 @@
 #include "LaserTypes.h"
+#include "Alien.h"
 
 AlienLaser::AlienLaser(float x, float y, float speed, Player* player):Laser(x, y, speed), m_player(player) {
 	

@@ -1,7 +1,5 @@
 #pragma once
 #include <SFML\Graphics.hpp>
-#include "Player.h"
-#include "Alien.h"
 
 class Laser : public sf::Drawable {
 protected:
@@ -9,11 +7,11 @@ protected:
 	float m_speed;
 	sf::RectangleShape m_sprite;
 
-	virtual bool collision() = 0;
-
 	void move();
 public:
 	Laser(float x, float y, float speed);
+
+	virtual bool collision() = 0;
 
 	void update();
 
