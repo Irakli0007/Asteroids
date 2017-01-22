@@ -22,6 +22,6 @@ void Player::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	target.draw(m_sprite, states);
 }
 
-sf::Vector2f Player::getPosition() {
-	return m_position;
+bool Player::hitbox(float x, float y) {
+	return m_sprite.getGlobalBounds().contains(x, y);
 }

@@ -6,8 +6,10 @@ AlienLaser::AlienLaser(float x, float y, float speed, Player* player):Laser(x, y
 }
 
 bool AlienLaser::collision() {
-	if (m_position == m_player->getPosition())
+	if (m_player->hitbox(m_position.x, m_position.y)) {
+		std::cout << "Player hit!" << std::endl;
 		return true;
+	}
 	else
 		return false;
 }

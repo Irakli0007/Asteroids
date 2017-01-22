@@ -36,7 +36,7 @@ void Alien::update() {
 		m_laser->update();
 		if (m_shotLifespan > 0) {
 			if (m_laser->collision()) {
-				//destroy or reduce number of player lives
+				//destroy player or reduce number of lives
 				delete m_laser;
 				m_laser = NULL;
 			}

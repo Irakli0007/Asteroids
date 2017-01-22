@@ -1,4 +1,5 @@
 #include <SFML\Graphics.hpp>
+#include <iostream>
 
 
 class Player : public sf::Drawable {
@@ -13,7 +14,7 @@ public:
 
 	void move();
 
-	sf::Vector2f getPosition();
+	bool hitbox(float x, float y);
 
 
 };

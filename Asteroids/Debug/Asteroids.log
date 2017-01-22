@@ -1,8 +1,12 @@
-﻿  Alien.cpp
+﻿  Player.cpp
+  LaserTypes.cpp
+c:\users\gm\documents\github\asteroids\asteroids\lasertypes.cpp(26): warning C4018: '<': signed/unsigned mismatch
+  Alien.cpp
+  Generating Code...
+  Compiling...
+  Main.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   Laser.cpp
-  Main.cpp
-  LaserTypes.cpp
   Asteroids.vcxproj -> C:\Users\GM\Documents\GitHub\Asteroids\Debug\Asteroids.exe
   Asteroids.vcxproj -> C:\Users\GM\Documents\GitHub\Asteroids\Debug\Asteroids.pdb (Full PDB)
